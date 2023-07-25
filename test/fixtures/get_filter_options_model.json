@@ -1,0 +1,323 @@
+{
+  "finishings": [
+    "not_finished",
+    "semi_finished",
+    "finished",
+    "furnished"
+  ],
+  "min_bedrooms": 1,
+  "max_bedrooms": 8,
+  "min_bathrooms": 1,
+  "max_bathrooms": 14,
+  "min_unit_area": 35,
+  "max_unit_area": 996,
+  "min_price": 717255,
+  "max_price": 134612888,
+  "price_list": [
+    500000,
+    1000000,
+    1500000,
+    2000000,
+    2500000,
+    3000000,
+    3500000,
+    4000000,
+    4500000,
+    5000000,
+    5500000,
+    6000000,
+    6500000,
+    7000000,
+    7500000,
+    8000000,
+    9000000,
+    10000000,
+    11000000,
+    12000000,
+    14000000,
+    16000000,
+    18000000,
+    20000000,
+    30000000,
+    40000000,
+    50000000,
+    100000000,
+    200000000,
+    300000000,
+    400000000
+  ],
+  "min_price_list": [
+    500000,
+    1000000,
+    1500000,
+    2000000,
+    2500000,
+    3000000,
+    3500000,
+    4000000,
+    5000000,
+    6000000,
+    7000000
+  ],
+  "max_price_list": [
+    7000000,
+    9000000,
+    11000000,
+    13000000,
+    15000000,
+    17000000,
+    19000000,
+    21000000,
+    23000000,
+    25000000
+  ],
+  "min_installment_years": 1,
+  "max_installment_years": 20,
+  "installment_years_list": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "min_down_payment": 43839,
+  "max_down_payment": 11025000,
+  "down_payment_list": [
+    50000,
+    100000,
+    150000,
+    200000,
+    250000,
+    300000,
+    350000,
+    400000,
+    450000,
+    500000,
+    550000,
+    600000,
+    650000,
+    700000,
+    750000,
+    800000,
+    900000,
+    1000000,
+    1100000,
+    1200000,
+    1400000,
+    1600000,
+    1800000,
+    2000000,
+    2500000,
+    3000000,
+    4000000,
+    5000000,
+    15000000
+  ],
+  "min_installments": 4725,
+  "max_installments": 7644000,
+  "installments_list": [
+    5000,
+    10000,
+    15000,
+    20000,
+    25000,
+    30000,
+    35000,
+    40000,
+    45000,
+    50000,
+    55000,
+    60000,
+    65000,
+    70000,
+    75000,
+    80000
+  ],
+  "max_ready_by": "2027-10-10",
+  "amenities": [
+    {
+      "id": 1,
+      "name": "Has graden",
+      "image_path": null
+    },
+    {
+      "id": 2,
+      "name": "Has roof",
+      "image_path": null
+    },
+    {
+      "id": 3,
+      "name": "Clubhouse",
+      "image_path": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/amenity/image/3/amenities__1_.png"
+    },
+    {
+      "id": 4,
+      "name": "School",
+      "image_path": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/amenity/image/4/reception.png"
+    },
+    {
+      "id": 5,
+      "name": "Pool",
+      "image_path": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/amenity/image/5/pool.png"
+    },
+    {
+      "id": 6,
+      "name": "lake view",
+      "image_path": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/amenity/image/6/clubhouse.png"
+    },
+    {
+      "id": 7,
+      "name": "Guest bathroom ",
+      "image_path": null
+    },
+    {
+      "id": 8,
+      "name": "Driver’s room",
+      "image_path": null
+    },
+    {
+      "id": 11,
+      "name": "last",
+      "image_path": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/amenity/image/11/nawy_cover.png"
+    }
+  ],
+  "tags": [],
+  "property_types": [
+    {
+      "id": 21,
+      "name": "Apartment",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/21/Apartments.svg"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Duplex",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/3/dublix.svg"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Studio",
+      "icon": {
+        "url": null
+      }
+    },
+    {
+      "id": 6,
+      "name": "Twinhouse",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/6/Twinhouse.svg"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Townhouse",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/7/Townhouses.svg"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Villa",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/1/Villas.svg"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Penthouse",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/4/Roof.svg"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Chalet",
+      "icon": {
+        "url": null
+      }
+    },
+    {
+      "id": 11,
+      "name": "Cabin",
+      "icon": {
+        "url": null
+      }
+    },
+    {
+      "id": 13,
+      "name": "Clinic",
+      "icon": {
+        "url": null
+      }
+    },
+    {
+      "id": 8,
+      "name": "Office",
+      "icon": {
+        "url": "https://s3.eu-central-1.amazonaws.com/test.images.cooingestate.com/admin/property_type/icon/8/Offices.svg"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Retail",
+      "icon": {
+        "url": null
+      }
+    }
+  ],
+  "sortings": [
+    {
+      "key": "min_price",
+      "value": "Minimum Price",
+      "direction": "asc"
+    },
+    {
+      "key": "min_price",
+      "value": "Maximum Price",
+      "direction": "desc"
+    },
+    {
+      "key": "min_ready_by",
+      "value": "Ready By",
+      "direction": "asc"
+    },
+    {
+      "key": "created_at",
+      "value": "Newest",
+      "direction": "desc"
+    },
+    {
+      "key": "min_installments",
+      "value": "Minimum Installment",
+      "direction": "asc"
+    },
+    {
+      "key": "min_installments",
+      "value": "Maximum Installment",
+      "direction": "desc"
+    }
+  ],
+  "sale_types": [
+    "resale",
+    "developer_sale",
+    "move_now_pay_later"
+  ]
+}
