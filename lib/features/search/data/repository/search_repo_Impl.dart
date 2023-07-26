@@ -5,7 +5,7 @@ import 'package:nawytask/core/utils/handlers/repo_impl_callhandler.dart';
 import 'package:nawytask/features/search/data/datasource/search_remote_datasource.dart';
 import 'package:nawytask/features/search/data/model/area_model.dart';
 import 'package:nawytask/features/search/data/model/compound_model.dart';
-import 'package:nawytask/features/search/data/model/filteroption_model.dart';
+import 'package:nawytask/features/search/data/model/filter_option_model.dart';
 import 'package:nawytask/features/search/data/model/property_model.dart';
 import 'package:nawytask/features/search/domain/repository/search_repo.dart';
 

@@ -6,7 +6,7 @@ import 'package:nawytask/core/network/network_manager.dart';
 import 'package:nawytask/core/utils/handlers/data_source_handler.dart';
 import 'package:nawytask/features/search/data/model/area_model.dart';
 import 'package:nawytask/features/search/data/model/compound_model.dart';
-import 'package:nawytask/features/search/data/model/filteroption_model.dart';
+import 'package:nawytask/features/search/data/model/filter_option_model.dart';
 import 'package:nawytask/features/search/data/model/property_model.dart';
 
 abstract class SearchRemoteDataSource {
@@ -95,9 +95,20 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   Future<PropertyModel> getPropertyBySearch(Map<String, dynamic> data) async {
     debugPrint(data.toString());
     final res = await networkManager.request(
-        method: RequestMethod.post, endPoint: "properties/search", data: data);
+        method: RequestMethod.post,
+        endPoint: "properties/search",
+        data: {
+          "min_price": 760000,
+          "max_price": 1000000,
+          "compound_id": null,
+          "area_id": null,
+          "min_number_of_bedrooms": 1,
+          "max_number_of_bedrooms": 1
+        });
     //todo: ensure the backend has 201 success code
     if (res.statusCode == 200) {
+      debugPrint(res.data['values'].toString());
+      debugPrint(PropertyModel.fromJson(res.data).values.toString());
       return PropertyModel.fromJson(res.data);
     } else {
       debugPrint(res.toString());

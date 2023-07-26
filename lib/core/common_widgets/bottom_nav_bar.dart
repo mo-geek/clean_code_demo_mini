@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nawytask/features/search/presentation/pages/search_page.dart';
+import 'package:nawytask/features/search/presentation/pages/search_results_page.dart';
 import 'package:stacked/stacked.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -19,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           index: _currentIndex,
           children: [
             SearchView(),
-            UpdateView(),
+            SearchResultsView(),
             FavouriteView(),
             MoreView(),
           ],
@@ -76,18 +77,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
 }
 
 class StackedBottomNavViewModel extends BaseViewModel {}
-
-class UpdateView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Update Screen',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
-}
 
 class FavouriteView extends StatelessWidget {
   @override

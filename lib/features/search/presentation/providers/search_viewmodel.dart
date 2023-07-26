@@ -5,7 +5,8 @@ import 'package:nawytask/core/usecase/usecase.dart';
 import 'package:nawytask/core/utils/get_it_injection.dart';
 import 'package:nawytask/features/search/data/model/area_model.dart';
 import 'package:nawytask/features/search/data/model/compound_model.dart';
-import 'package:nawytask/features/search/data/model/filteroption_model.dart';
+import 'package:nawytask/features/search/data/model/filter_option_model.dart';
+import 'package:nawytask/features/search/data/model/property_model.dart';
 import 'package:nawytask/features/search/data/model/search_result_model.dart';
 import 'package:nawytask/features/search/domain/usecase/get_areas_usecase.dart';
 import 'package:nawytask/features/search/domain/usecase/get_compounds_usecase.dart';
@@ -15,10 +16,13 @@ import 'package:stacked/stacked.dart';
 
 class SearchViewModel extends BaseViewModel {
   String _searchText = '';
+  TextEditingController searchController = TextEditingController();
+
   late SearchResultModel _searchResultModel;
 
   List<AreaModel> _areasList = [];
   List<CompoundModel> _compoundsList = [];
+  PropertyModel? propertyModel;
   late FilterOptionsModel _filterOptions;
   AreaModel? _selectedAreaModel;
   CompoundModel? _selectedCompoundModel;
@@ -47,19 +51,19 @@ class SearchViewModel extends BaseViewModel {
   }
 
   void showResults() {
-    _searchText = _textFieldValue;
+    _searchText = searchController.text.toString();
     searchProperty();
   }
 
-  String _textFieldValue = '';
-
-  String get textFieldValue => _textFieldValue;
-
-  void onTextChanged(String value) {
-    _textFieldValue = value;
-    print(value);
-    notifyListeners();
-  }
+  // String _textFieldValue = '';
+  //
+  // String get textFieldValue => _textFieldValue;
+  //
+  // void onTextChanged(String value) {
+  //   _textFieldValue = value;
+  //   print(value);
+  //   notifyListeners();
+  // }
 
   void setPriceRange(RangeValues v) {
     selectedMinPrice = v.start;
@@ -127,6 +131,10 @@ class SearchViewModel extends BaseViewModel {
       Logger().e(ErrorObject.mapFailureToErrorObject(failure: e).message);
     }, (response) {
       Logger().i(response.toString());
+      debugPrint(response.toString());
+      debugPrint(
+          response.values?.length.toString() ?? "Empty Property List!!!");
+      propertyModel = response;
     });
   }
 

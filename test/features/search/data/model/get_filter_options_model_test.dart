@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nawytask/features/search/data/model/filteroption_model.dart';
+import 'package:nawytask/features/search/data/model/filter_option_model.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {

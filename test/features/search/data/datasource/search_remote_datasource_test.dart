@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:nawytask/core/network/network_manager.dart';
 import 'package:nawytask/features/search/data/datasource/search_remote_datasource.dart';
-import 'package:nawytask/features/search/data/model/filteroption_model.dart';
+import 'package:nawytask/features/search/data/model/filter_option_model.dart';
 import '../../../../core/mocks/mock_data.dart';
 import '../../../../fixtures/fixture_reader.dart';
 

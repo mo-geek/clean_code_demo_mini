@@ -1,7 +1,7 @@
 class PropertyModel {
   int? totalCompounds;
   int? totalProperties;
-  List<Values>? values;
+  List<PropertyInfo>? values;
 
   PropertyModel({this.totalCompounds, this.totalProperties, this.values});
 
@@ -9,9 +9,9 @@ class PropertyModel {
     totalCompounds = json['total_compounds'];
     totalProperties = json['total_properties'];
     if (json['values'] != null) {
-      values = <Values>[];
+      values = <PropertyInfo>[];
       json['values'].forEach((v) {
-        values!.add(Values.fromJson(v));
+        values!.add(PropertyInfo.fromJson(v));
       });
     }
   }
@@ -27,7 +27,7 @@ class PropertyModel {
   }
 }
 
-class Values {
+class PropertyInfo {
   int? id;
   String? name;
   PropertyType? propertyType;
@@ -44,7 +44,7 @@ class Values {
   int? numberOfBathrooms;
   int? numberOfBedrooms;
 
-  Values(
+  PropertyInfo(
       {this.id,
       this.name,
       this.propertyType,
@@ -61,7 +61,7 @@ class Values {
       this.numberOfBathrooms,
       this.numberOfBedrooms});
 
-  Values.fromJson(Map<String, dynamic> json) {
+  PropertyInfo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     propertyType = json['property_type'] != null
