@@ -95,16 +95,17 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   Future<PropertyModel> getPropertyBySearch(Map<String, dynamic> data) async {
     debugPrint(data.toString());
     final res = await networkManager.request(
-        method: RequestMethod.post,
-        endPoint: "properties/search",
-        data: {
-          "min_price": 760000,
-          "max_price": 1000000,
-          "compound_id": null,
-          "area_id": null,
-          "min_number_of_bedrooms": 1,
-          "max_number_of_bedrooms": 1
-        });
+        method: RequestMethod.post, endPoint: "properties/search", data: data);
+
+    /// Dummy Data For Testing ....
+    // {
+    //   "min_price": 760000,
+    // "max_price": 1000000,
+    // "compound_id": null,
+    // "area_id": null,
+    // "min_number_of_bedrooms": 1,
+    // "max_number_of_bedrooms": 1
+    // }
     //todo: ensure the backend has 201 success code
     if (res.statusCode == 200) {
       debugPrint(res.data['values'].toString());

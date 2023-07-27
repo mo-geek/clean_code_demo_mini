@@ -15,6 +15,7 @@ import 'package:nawytask/features/search/domain/usecase/search_property_usecase.
 import 'package:stacked/stacked.dart';
 
 class SearchViewModel extends BaseViewModel {
+  bool loadingFlag = false;
   String _searchText = '';
   TextEditingController searchController = TextEditingController();
 
@@ -50,20 +51,18 @@ class SearchViewModel extends BaseViewModel {
     updateRoomSlider();
   }
 
-  void showResults() {
-    _searchText = searchController.text.toString();
-    searchProperty();
+  void loadingToggle() {
+    loadingFlag = !loadingFlag;
+    notifyListeners();
   }
 
-  // String _textFieldValue = '';
-  //
-  // String get textFieldValue => _textFieldValue;
-  //
-  // void onTextChanged(String value) {
-  //   _textFieldValue = value;
-  //   print(value);
-  //   notifyListeners();
-  // }
+  Future<void> showResults() async {
+    loadingToggle();
+    _searchText = searchController.text.toString();
+    await searchProperty();
+    loadingFlag = false;
+    loadingToggle();
+  }
 
   void setPriceRange(RangeValues v) {
     selectedMinPrice = v.start;

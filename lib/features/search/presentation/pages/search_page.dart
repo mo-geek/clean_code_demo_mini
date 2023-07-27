@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nawytask/core/common_widgets/elevated_button.dart';
 import 'package:nawytask/core/theme/custom_button_style.dart';
 import 'package:nawytask/core/theme/custom_text_style.dart';
+import 'package:nawytask/core/theme/theme_helper.dart';
 import 'package:nawytask/core/utils/handlers/image_constant.dart';
 import 'package:nawytask/core/utils/handlers/size_utils.dart';
 import 'package:nawytask/core/widgets/custom_elevated_button.dart';
 import 'package:nawytask/core/widgets/custom_image_view.dart';
 import 'package:nawytask/core/widgets/custom_search_view.dart';
-import 'package:nawytask/features/search/presentation/pages/properties_view.dart';
 import 'package:nawytask/features/search/presentation/pages/search_results_page.dart';
 import 'package:nawytask/features/search/presentation/providers/search_viewmodel.dart';
 import 'package:stacked/stacked.dart';
@@ -35,19 +32,19 @@ class SearchView extends StatelessWidget {
               width: 150,
               child: Row(
                 children: [
-                  IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black,
-                    ),
-                    tooltip: 'Show Snackbar',
-                    onPressed: () {},
+                  CustomImageView(
+                    svgPath: ImageConstant.imgArrowleft,
+                    height: getSize(29),
+                    width: getSize(29),
+                    margin: getMargin(bottom: 2, left: 11),
                   ),
-                  Text('Search',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w400))
+                  Padding(
+                      padding: getPadding(left: 9, bottom: 2, right: 11),
+                      child: Text("Search",
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.left,
+                          style: theme.textTheme.titleLarge!.copyWith(
+                              letterSpacing: getHorizontalSize(0.15)))),
                 ],
               ),
             ),
@@ -135,8 +132,8 @@ class SearchView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 85.0),
                     child: CustomElevatedButton(
-                        onTap: () {
-                          model.showResults();
+                        onTap: () async {
+                          await model.showResults();
                           FocusScope.of(context).unfocus();
                           if (model.propertyModel != null) {
                             Navigator.push(

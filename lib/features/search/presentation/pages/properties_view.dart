@@ -24,65 +24,63 @@ class _PropertiesViewState extends State<PropertiesView> {
   @override
   Widget build(BuildContext context) {
     PropertyModel? propertyModel = widget.propertyModel;
-    return SizedBox(
-        height: getVerticalSize(655),
-        width: double.maxFinite,
-        child: Stack(alignment: Alignment.center, children: [
-          Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                  height: getVerticalSize(523),
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(color: appTheme.gray100))),
-          Align(
-              alignment: Alignment.center,
-              child: Container(
-                  padding: getPadding(left: 14, top: 15, right: 14, bottom: 15),
-                  decoration: AppDecoration.fill2,
-                  child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                            padding: getPadding(left: 10),
-                            child: Text(
-                                "${propertyModel?.totalProperties ?? "none"} results",
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.left,
-                                style: CustomTextStyles.bodySmallBlack900_1
-                                    .copyWith(
-                                        letterSpacing:
-                                            getHorizontalSize(0.4)))),
-                        // properties Card List
-                        Expanded(
-                          child: ListView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              controller: _scrollController,
-                              itemCount: propertyModel?.values?.length ?? 0,
-                              itemBuilder: (context, index) {
-                                return PropertyCard(
-                                  val: propertyModel?.values?[index],
-                                );
-                              }),
-                        ),
-                        CustomIconButton(
-                            onTap: () {
-                              _scrollController.animateTo(
-                                0,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            height: 48,
-                            width: 48,
-                            margin: getMargin(top: 19, bottom: 75),
-                            padding: getPadding(all: 11),
-                            alignment: Alignment.center,
-                            child: CustomImageView(
-                                svgPath: ImageConstant.imgArrowup))
-                      ])))
-        ]));
+    return  Stack(alignment: Alignment.center, children: [
+      Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+              height: getVerticalSize(523),
+              width: double.maxFinite,
+              decoration: BoxDecoration(color: appTheme.gray100))),
+      Align(
+          alignment: Alignment.center,
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            controller: _scrollController,
+            child: Container(
+                padding: getPadding(left: 14, top: 15, right: 14, bottom: 15),
+                decoration: AppDecoration.fill2,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                          padding: getPadding(left: 10, bottom: 15.0),
+                          child: Text(
+                              "${propertyModel?.totalProperties ?? "none"} results",
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.left,
+                              style: CustomTextStyles.bodySmallBlack900_1
+                                  .copyWith(
+                                  letterSpacing:
+                                  getHorizontalSize(0.4)))),
+                      // properties Card List
+                      ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: propertyModel?.values?.length ?? 0,
+                          itemBuilder: (context, index) {
+                            return PropertyCard(
+                              val: propertyModel?.values?[index],
+                            );
+                          }),
+                      CustomIconButton(
+                          onTap: () {
+                            _scrollController.animateTo(
+                              0,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeInOut,
+                            );
+                          },
+                          height: 48,
+                          width: 48,
+                          margin: getMargin(top: 19, bottom: 75),
+                          padding: getPadding(all: 11),
+                          alignment: Alignment.center,
+                          child: CustomImageView(
+                              svgPath: ImageConstant.imgArrowup))
+                    ])),
+          )),
+    ]);
   }
 }
 
