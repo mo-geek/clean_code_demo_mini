@@ -87,15 +87,30 @@ class SearchView extends StatelessWidget {
                   const SizedBox(height: 16),
                   Column(
                     children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 15.0),
-                            child: Text(' Price '),
-                          ),
-                        ],
-                      ),
+                      Padding(
+                          padding: getPadding(left: 8, top: 5, right: 9),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text("Price",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.left,
+                                    style: CustomTextStyles.bodyLargeBlack900_1
+                                        .copyWith(
+                                            letterSpacing:
+                                                getHorizontalSize(0.15))),
+                                Padding(
+                                    padding:
+                                        getPadding(top: 2, bottom: 1, left: 5),
+                                    child: Text(
+                                        "From : ${model.selectedMinPrice} ~ To: ${model.selectedMaxPrice}",
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: theme.textTheme.bodySmall!
+                                            .copyWith(
+                                                letterSpacing:
+                                                    getHorizontalSize(0.4))))
+                              ])),
                       RangeSlider(
                           values: model.selectedPriceRange,
                           min: model.minPrice,
@@ -109,15 +124,29 @@ class SearchView extends StatelessWidget {
                   const SizedBox(height: 16),
                   Column(
                     children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15.0),
-                            child: const Text(' Rooms '),
-                          ),
-                        ],
-                      ),
+                      Padding(
+                          padding: getPadding(left: 8, top: 5, right: 9),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Rooms",
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.left,
+                                    style: CustomTextStyles.bodyLargeBlack900_1
+                                        .copyWith(
+                                            letterSpacing:
+                                                getHorizontalSize(0.15))),
+                                Padding(
+                                    padding: getPadding(top: 2, bottom: 1),
+                                    child: Text(
+                                        "${model.selectedMinRooms} ~ ${model.selectedMaxRooms}+ rooms",
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.left,
+                                        style: theme.textTheme.bodySmall!
+                                            .copyWith(
+                                                letterSpacing:
+                                                    getHorizontalSize(0.4))))
+                              ])),
                       RangeSlider(
                           values: model.selectedBedRoomsRange,
                           min: model.minBedRooms,

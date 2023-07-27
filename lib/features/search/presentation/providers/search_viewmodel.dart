@@ -24,7 +24,7 @@ class SearchViewModel extends BaseViewModel {
   List<AreaModel> _areasList = [];
   List<CompoundModel> _compoundsList = [];
   PropertyModel? propertyModel;
-  late FilterOptionsModel _filterOptions;
+  FilterOptionsModel? _filterOptions;
   AreaModel? _selectedAreaModel;
   CompoundModel? _selectedCompoundModel;
 
@@ -65,15 +65,15 @@ class SearchViewModel extends BaseViewModel {
   }
 
   void setPriceRange(RangeValues v) {
-    selectedMinPrice = v.start;
-    selectedMaxPrice = v.end;
+    selectedMinPrice = v.start.roundToDouble();
+    selectedMaxPrice = v.end.roundToDouble();
     selectedPriceRange = v;
     notifyListeners();
   }
 
   void setRoomRange(RangeValues v) {
-    selectedMinRooms = v.start;
-    selectedMaxRooms = v.end;
+    selectedMinRooms = v.start.roundToDouble();
+    selectedMaxRooms = v.end.roundToDouble();
     selectedBedRoomsRange = v;
     notifyListeners();
   }
@@ -166,12 +166,13 @@ class SearchViewModel extends BaseViewModel {
   }
 
   void updatePriceSlider() {
-    List? list = _filterOptions.priceList;
-    minPrice = list?.first.toDouble();
-    maxPrice = list?.last.toDouble();
-    int start = (maxPrice - minPrice) ~/ 2.0;
-    double end = maxPrice;
-    selectedPriceRange = RangeValues(start.toDouble(), end);
+    List? list = _filterOptions?.priceList;
+    minPrice = list?.first.toDouble() ?? minPrice;
+    maxPrice = list?.last.toDouble() ?? maxPrice;
+    selectedMinPrice = (maxPrice - minPrice) / 2.0;
+    selectedMaxPrice = maxPrice;
+    selectedPriceRange =
+        RangeValues(selectedMinPrice ?? 0.2, selectedMaxPrice ?? 0.8);
     divisionPrice = list?.length != null && list?.isNotEmpty == true
         ? list!.length - 1
         : null;
@@ -179,12 +180,14 @@ class SearchViewModel extends BaseViewModel {
   }
 
   void updateRoomSlider() {
-    minBedRooms = _filterOptions.minBedrooms?.toDouble() ?? minBedRooms;
-    maxBedRooms = _filterOptions.maxBedrooms?.toDouble() ?? maxBedRooms;
-    int start = (maxBedRooms - minBedRooms) ~/ 2.0;
-    double end = maxBedRooms;
-    selectedBedRoomsRange = RangeValues(start.toDouble(), end);
-    divisionBedRooms = (maxBedRooms / minBedRooms).round();
+    minBedRooms = _filterOptions?.minBedrooms?.toDouble() ?? minBedRooms;
+    maxBedRooms = _filterOptions?.maxBedrooms?.toDouble() ?? maxBedRooms;
+    selectedMinRooms = (maxBedRooms - minBedRooms) / 2.0;
+    selectedMaxRooms = maxBedRooms;
+    selectedBedRoomsRange = RangeValues(
+        selectedMinRooms?.roundToDouble() ?? 0.2,
+        selectedMaxRooms?.roundToDouble() ?? 0.8);
+    divisionBedRooms = maxBedRooms.floor();
     notifyListeners();
   }
 
